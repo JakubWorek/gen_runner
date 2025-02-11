@@ -1,50 +1,49 @@
 # GENRunner
 
-Aplikacja do sterowania eksperymentami z wielokryterialnymi algorytmami ewolucyjnymi (MOEA) opartymi na [MOEA Framework](http://moeaframework.org/). System działa w architekturze klient-serwer, gdzie:
+An application for managing experiments with multi-objective evolutionary algorithms (MOEA) based on the [MOEA Framework](http://moeaframework.org/). The system operates in a client-server architecture, where:
 
-- **Serwer** – asynchronicznie uruchamia eksperymenty, zbiera rezultaty i zarządza statystykami.
-- **Klient** – konsolowa aplikacja umożliwiająca uruchamianie eksperymentów, przeglądanie statusów i wyników oraz zarządzanie eksperymentami.
+- **Server** – asynchronously runs experiments, collects results, and manages statistics.
+- **Client** – a console application that allows launching experiments, viewing statuses and results, and managing experiments.
 
-## Funkcjonalności
+## Features
 
-- **Uruchamianie eksperymentów:**
-  - Wykorzystanie MOEA Framework.
-  - Parametry eksperymentu: nazwy algorytmów, problemów testowych, metryk oraz budżet (liczba wywołań funkcji celu lub iteracji).
-  - Konfiguracja wielu algorytmów i problemów w jednym eksperymencie.
-  - Powtórzenia eksperymentów (uruchomienie eksperymentu w wielu instancjach).
+- **Running experiments:**
+  - Utilizes the MOEA Framework.
+  - Experiment parameters: algorithm names, test problems, metrics, and budget (number of objective function calls or iterations).
+  - Configuring multiple algorithms and problems within a single experiment.
+  - Experiment repetitions (running an experiment in multiple instances).
 
-- **Asynchroniczne wykonywanie eksperymentów:**
-  - Jednoczesne uruchamianie wielu eksperymentów z uwzględnieniem ograniczeń maszyny.
+- **Asynchronous experiment execution:**
+  - Running multiple experiments simultaneously, considering machine constraints.
 
-- **Zarządzanie eksperymentami:**
-  - Listowanie eksperymentów (trwających i zakończonych).
-  - Odczytywanie statusu eksperymentu (działający, zakończony, błąd).
-  - Odczytywanie wyników – prezentacja tabelaryczna (iteracje jako wiersze, metryki jako kolumny).
-  - Agregacja statystyk (średnia, mediana, odchylenie standardowe) z możliwością filtrowania po zakresie dat.
-  - Filtrowanie instancji eksperymentów według algorytmu, problemu lub metryk.
+- **Experiment management:**
+  - Listing ongoing and completed experiments.
+  - Checking experiment status (running, completed, error).
+  - Viewing results – tabular presentation (iterations as rows, metrics as columns).
+  - Aggregating statistics (mean, median, standard deviation) with date range filtering.
+  - Filtering experiment instances by algorithm, problem, or metrics.
 
-- **Prezentacja wyników:**
-  - Eksport wyników do pliku CSV.
-  - Generowanie wykresów (PNG) – wykres wartości metryki w kolejnych iteracjach.
-  - Nowe formy prezentacji kompatybilne z dotychczasowymi mechanizmami (np. filtrowanie po czasie).
+- **Results presentation:**
+  - Exporting results to a CSV file.
+  - Generating graphs (PNG) – metric value charts over iterations.
+  - New presentation formats compatible with existing mechanisms (e.g., time-based filtering).
 
-- **Zarządzanie grupami eksperymentów:**
-  - Tworzenie grup eksperymentów poprzez oznaczenie (po ID lub wyniku filtrowania) oraz możliwość dodania do istniejącej grupy.
-  - Wyświetlanie wyników dla eksperymentów z danej grupy.
+- **Experiment group management:**
+  - Creating experiment groups by tagging (by ID or filtered results) and adding to existing groups.
+  - Displaying results for experiments within a specific group.
 
-- **Obsługa API:**
-  - Klient CLI komunikuje się z serwerem, obsługuje błędy i przekazuje parametry eksperymentów.
+- **API handling:**
+  - The CLI client communicates with the server, handles errors, and transmits experiment parameters.
 
-- **Usuwanie eksperymentów:**
-  - Usuwanie pojedynczych eksperymentów lub całych grup (razem z rezultatami i metadanymi).
+- **Experiment deletion:**
+  - Deleting individual experiments or entire groups (including results and metadata).
 
-
-Skład zespołu:
+## Team:
 - Jakub Worek
 - Jakub Białecki
 - Bartłomiej Treśka
 
-# Jak odpalić:
-- Należy uruchomić mongodb na dockerze (instrukcje w folderze database)
-- Należy uruchomić `backend/src/main/java/pl/edu/agh/GenRunnerApplication.java`
-- Należu uruchomić `cli/src/main/java/cli/Client.java`
+# How to Run:
+- Start MongoDB in Docker (instructions in the `database` folder).
+- Run `backend/src/main/java/pl/edu/agh/GenRunnerApplication.java`.
+- Run `cli/src/main/java/cli/Client.java`.
